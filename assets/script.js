@@ -114,11 +114,15 @@ function toggleStartPause() {
 
 // Reset everything
 function resetTimer() {
+    console.log("reset")
     pauseTimer();
     mode = "focus";
     remainingTime = durations[mode];
     modeDisplay.textContent = "Focus";
     startBtn.textContent = "Start";
+    pomodoroCount = 0;
+    completedCycles = 0;
+    pomodoroCountEl.textContent = pomodoroCount;
     updateDisplay();
 }
 
@@ -151,10 +155,14 @@ updateDisplay();
 
 pomodoroCountEl.textContent = pomodoroCount;
 
-
 function goFullScreen() {
-    if (document.documentElement.requestFullscreen) {
-        document.documentElement.requestFullscreen();
+    if (document.fullscreenElement) {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        }
+    } else {
+        if (document.documentElement.requestFullscreen) {
+            document.documentElement.requestFullscreen();
+        }
     }
 }
-

@@ -1,7 +1,7 @@
 # Aesthetic Pomodoro
 
 A simple and visually appealing Pomodoro timer to boost productivity.
-
+![Example timer](assets/demo.png)
 ## Features
 - Customizable work and break intervals.
 - Minimalistic and aesthetic design.
