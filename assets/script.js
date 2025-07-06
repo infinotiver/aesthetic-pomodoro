@@ -147,4 +147,6 @@ standBtn.addEventListener("click", standBreak);
 // Init
 requestNotificationPermission();
 updateDisplay();
+
+
 pomodoroCountEl.textContent = pomodoroCount;
