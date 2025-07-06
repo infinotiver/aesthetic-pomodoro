@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pomodoro Timer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/main.css">
+</head>
+
+<body
+    class="min-h-screen bg-gradient-to-r from-purple-800 via-indigo-700 to-cyan-600 text-white flex flex-col items-center justify-center transition ease-in-out">
+
+    <div class="w-full h-full p-8 rounded-3xl flex flex-col items-center space-y-6">
+
+        <div class="py-2 px-6 text-2xl" id="mode">Focus</div>
+        <div id="counter" class="absolute top-0 left-0 transform translate-8 opacity-90 py-2 px-4 bg-white text-black border-2 border-white hover:bg-transparent hover:text-white rounded-4xl font-semibold transition">
+            Completed: <span id="pomodoro-count">0</span></div>
+        <div id="timer-display" class="text-9xl font-semibold">25:00</div>
+        <div class="sm:w-[20%] w-[80%] h-1 bg-gray-300 opacity-90 rounded overflow-hidden">
+            <div id="progress-bar" class="h-full bg-white transition-all duration-300 ease-linear" style="width: 100%;">
+            </div>
+        </div>
+
+
+
+        <div class="flex space-x-6">
+            <button id="start-btn"
+                class="px-6 py-3 bg-white text-black border-2 border-white hover:bg-transparent hover:text-white rounded-4xl font-semibold transition">Start</button>
+            <button id="pause-btn"
+                class="px-6 py-3 bg-white text-black border-2 border-white hover:bg-transparent hover:text-white rounded-4xl font-semibold transition">Reset</button>
+            <button id="settings-btn"
+                class="px-6 py-3 bg-white text-black border-2 border-white hover:bg-transparent hover:text-white rounded-4xl font-semibold transition">Settings</button>
+
+        </div>
+
+    </div>
+    <script src="assets/script.js"></script>
+</body>
+
+</html>
