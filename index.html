@@ -19,9 +19,9 @@
     class="min-h-screen flex items-center justify-center text-white"
   >
     <div
-      class="w-full h-full p-8 rounded-3xl flex flex-col items-center space-y-6 transition-all"
+      class="w-screen h-screen space-y-6 p-8 bg-black/75 flex flex-col items-center justify-center transition-all"
     >
-      <div class="flex space-x-2">
+      <div class="flex items-center space-x-2">
         <div
           class="py-2 px-6 transition-all text-black border-2 border-white bg-white rounded-4xl"
           id="mode"
@@ -66,8 +66,9 @@
         <button
           id="settings-btn"
           class="px-6 py-2 bg-white text-black border-2 border-white hover:bg-transparent hover:text-white rounded-4xl font-bold transition-all"
+          onclick="goFullScreen()"
         >
-          Settings
+          Full Screen
         </button>
       </div>
     </div>
