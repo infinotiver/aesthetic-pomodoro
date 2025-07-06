@@ -1,3 +1,5 @@
+console.log("✅ script.js loaded");
+
 let durations = {
     focus: 25 * 60,       // 25 min
     shortBreak: 5 * 60,   // 5 min
@@ -14,7 +16,6 @@ let isRunning = false;
 const display = document.getElementById("timer-display");
 const startBtn = document.getElementById("start-btn");
 const resetBtn = document.getElementById("reset-btn");
-const standBtn = document.getElementById("stand-btn");
 const modeDisplay = document.getElementById("mode");
 const pomodoroCountEl = document.getElementById("pomodoro-count");
 
@@ -126,15 +127,7 @@ function resetTimer() {
     updateDisplay();
 }
 
-// Manual "Stand" break
-function standBreak() {
-    pauseTimer();
-    mode = "stand";
-    remainingTime = 5 * 60;
-    modeDisplay.textContent = "Stand Break";
-    updateDisplay();
-    sendNotification("Time to stand up!");
-}
+
 
 // Ask for notification permission
 function requestNotificationPermission() {
@@ -146,7 +139,6 @@ function requestNotificationPermission() {
 // Events
 startBtn.addEventListener("click", toggleStartPause);
 resetBtn.addEventListener("click", resetTimer);
-standBtn.addEventListener("click", standBreak);
 
 // Init
 requestNotificationPermission();
@@ -166,3 +158,25 @@ function goFullScreen() {
         }
     }
 }
+
+
+function updateCurrentTime() {
+    console.log("⏰ updateCurrentTime() called");
+
+    const el = document.getElementById("current-time");
+    if (!el) {
+        console.warn("❌ #current-time not found in DOM");
+        return;
+    }
+
+    setInterval(() => {
+        const now = new Date();
+        const hh = String(now.getHours()).padStart(2, '0');
+        const mm = String(now.getMinutes()).padStart(2, '0');
+        el.textContent = `${hh}:${mm}`;
+    }, 1000);
+}
+
+// CALL IT!
+updateCurrentTime();
+N
