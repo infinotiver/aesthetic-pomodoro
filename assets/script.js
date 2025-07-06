@@ -115,7 +115,6 @@ function toggleStartPause() {
 
 // Reset everything
 function resetTimer() {
-    console.log("reset")
     pauseTimer();
     mode = "focus";
     remainingTime = durations[mode];
@@ -161,7 +160,6 @@ function goFullScreen() {
 
 
 function updateCurrentTime() {
-    console.log("⏰ updateCurrentTime() called");
 
     const el = document.getElementById("current-time");
     if (!el) {
