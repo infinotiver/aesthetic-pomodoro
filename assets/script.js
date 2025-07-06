@@ -157,3 +157,4 @@ function goFullScreen() {
         document.documentElement.requestFullscreen();
     }
 }
+
