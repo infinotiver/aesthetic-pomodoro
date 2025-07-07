@@ -13,11 +13,20 @@ let completedCycles = 0;
 let timerInterval = null;
 let isRunning = false;
 
+
 const display = document.getElementById("timer-display");
 const startBtn = document.getElementById("start-btn");
 const resetBtn = document.getElementById("reset-btn");
 const modeDisplay = document.getElementById("mode");
 const pomodoroCountEl = document.getElementById("pomodoro-count");
+
+function loadState() {
+    const saved = localStorage.getItem("focusTimerState");
+    if (!saved) return;
+    const state = JSON.parse(saved);
+    pomodoroCount = state.pomodoroCount;
+    updateDisplay(); 
+}
 
 // Format seconds to MM:SS
 function formatTime(seconds) {
@@ -31,6 +40,7 @@ function updateDisplay() {
     display.textContent = formatTime(remainingTime);
     document.title = `${formatTime(remainingTime)} - ${modeName(mode)}`;
     updateProgressBar();
+    
 }
 
 function updateProgressBar() {
@@ -63,7 +73,8 @@ function switchMode(newMode) {
     modeDisplay.textContent = modeName(mode);
     updateDisplay();
     sendNotification(`Time for ${modeName(newMode)}!`);
-    startTimer(); // auto-start
+    startTimer(); // auto-start;
+    saveState();
 }
 
 // Start/resume countdown
@@ -135,17 +146,6 @@ function requestNotificationPermission() {
     }
 }
 
-// Events
-startBtn.addEventListener("click", toggleStartPause);
-resetBtn.addEventListener("click", resetTimer);
-
-// Init
-requestNotificationPermission();
-updateDisplay();
-
-
-pomodoroCountEl.textContent = pomodoroCount;
-
 function goFullScreen() {
     if (document.fullscreenElement) {
         if (document.exitFullscreen) {
@@ -157,8 +157,15 @@ function goFullScreen() {
         }
     }
 }
+// Save stats
+function saveState() {
+    const state = {
+        pomodoroCount
+    };
+    localStorage.setItem("focusTimerState", JSON.stringify(state));
+}
 
-
+// Update clock
 function updateCurrentTime() {
 
     const el = document.getElementById("current-time");
@@ -175,6 +182,18 @@ function updateCurrentTime() {
     }, 1000);
 }
 
+// Events
+startBtn.addEventListener("click", toggleStartPause);
+resetBtn.addEventListener("click", resetTimer);
+
+// Init
+loadState()
+requestNotificationPermission();
+updateDisplay();
+
+
+pomodoroCountEl.textContent = pomodoroCount;
+
+
 // CALL IT!
 updateCurrentTime();
-N
