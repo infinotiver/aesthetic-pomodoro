@@ -211,6 +211,7 @@ resetBtn.addEventListener("click", resetTimer);
 document.addEventListener("keydown", e => {
     if (e.key === " ") toggleStartPause();
     if (e.key === "r") resetTimer();
+    if (e.key === "h") toggleHelp();
 });
 
 
