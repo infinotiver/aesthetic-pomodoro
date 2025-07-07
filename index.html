@@ -97,6 +97,29 @@
       </div>
       <div
         id="time-label"
+        class="absolute bottom-10 right-4 py-2 px-4 text-white z-50 rounded-4xl font-semibold transition-all sm:inline hidden cursor-pointer"
+        onclick="toggleHelp()"
+      >
+        <i class="fa-solid fa-circle-info"></i> Help
+      </div>
+      <div id="help-box">
+        <h2 class="text-lg font-bold mb-2">Help</h2>
+        <div class="text-sm">
+          Use the <strong>Start</strong> button to begin the timer. The
+          <strong>Reset</strong> button will reset the timer to its default
+          value. Click the <strong>Fullscreen</strong> button to toggle
+          fullscreen mode.
+          <ul class="mt-4">
+            <li><strong>Space:</strong> Start/Stop the timer</li>
+            <li><strong>R:</strong> Reset the timer</li>
+            <li><strong>F:</strong> Toggle fullscreen mode</li>
+            <li><strong>H:</strong> Show/Hide help</li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        id="time-label"
         class="absolute border-1 border-white bottom-4 right-4 py-2 px-4 bg-white text-black z-50 rounded-4xl font-semibold transition-all"
       >
         <i class="fa-solid fa-clock"></i>

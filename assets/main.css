@@ -10,4 +10,18 @@
         backdrop-filter: blur(20%);
 
     }
+
+    #help-box {
+        display: none;
+        position: absolute;
+        bottom: 20vh;
+        right: 20px;
+        width: 30%;
+        height: auto;
+        padding: 12px;
+        background-color: #ffffff;
+        color: black;
+        border-radius: 4px;
+        transition: all 0.5s ease;
+    }
 }

@@ -195,6 +195,15 @@ function updateCurrentTime() {
     }, 1000);
 }
 
+// Help command
+function toggleHelp() {
+    var helpBox = document.getElementById("help-box");
+    if (helpBox.style.display === "none") {
+        helpBox.style.display = "block";
+    } else {
+        helpBox.style.display = "none";
+    }
+}
 // Events
 startBtn.addEventListener("click", toggleStartPause);
 resetBtn.addEventListener("click", resetTimer);
