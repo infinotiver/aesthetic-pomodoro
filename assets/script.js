@@ -25,7 +25,7 @@ function loadState() {
     if (!saved) return;
     const state = JSON.parse(saved);
     pomodoroCount = state.pomodoroCount;
-    updateDisplay(); 
+    updateDisplay();
 }
 
 // Format seconds to MM:SS
@@ -40,7 +40,7 @@ function updateDisplay() {
     display.textContent = formatTime(remainingTime);
     document.title = `${formatTime(remainingTime)} - ${modeName(mode)}`;
     updateProgressBar();
-    
+
 }
 
 function updateProgressBar() {
@@ -185,6 +185,12 @@ function updateCurrentTime() {
 // Events
 startBtn.addEventListener("click", toggleStartPause);
 resetBtn.addEventListener("click", resetTimer);
+
+document.addEventListener("keydown", e => {
+    if (e.key === " ") toggleStartPause();
+    if (e.key === "r") resetTimer();
+});
+
 
 // Init
 loadState()
