@@ -10,6 +10,11 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
     <link rel="stylesheet" href="assets/style.css" />
     <link rel="stylesheet" href="assets/main.css" />
   </head>
@@ -26,13 +31,15 @@
           class="py-2 px-6 transition-all text-black border-2 border-white bg-white rounded-4xl"
           id="mode"
         >
+          <span id="mode-icon"><i class="fa-solid fa-brain"></i></span>
           Focus
         </div>
         <div
           id="counter"
           class="opacity-90 py-2 px-6 text-white border-2 border-white rounded-4xl font-semibold transition-all"
         >
-          Completed: <span id="pomodoro-count">0</span>
+          <i class="fa-solid fa-circle-check"></i> Completed:
+          <span id="pomodoro-count">0</span>
         </div>
         <div
           id="spotify-widget"
@@ -77,20 +84,22 @@
           id="reset-btn"
           class="px-6 py-2 bg-white text-black border-2 border-white hover:bg-transparent hover:text-white rounded-4xl font-bold transition-all"
         >
-          Reset
+          <i class="fa-solid fa-rotate-left"></i>
+          <div class="hidden sm:inline">Reset</div>
         </button>
         <button
           id="settings-btn"
-          class="px-6 py-2 bg-white text-black border-2 border-white hover:bg-transparent hover:text-white rounded-4xl font-bold transition-all"
+          class="px-6 py-2 scale-175 bg-transparent text-white font-bold transition-all hover:scale-225"
           onclick="goFullScreen()"
         >
-          Full Screen
+          <i class="fa-solid fa-expand"></i>
         </button>
       </div>
       <div
         id="time-label"
-        class="absolute border-1 border-white bottom-4 right-4 py-2 px-6 bg-white text-black z-50 rounded-4xl font-semibold transition-all"
+        class="absolute border-1 border-white bottom-4 right-4 py-2 px-4 bg-white text-black z-50 rounded-4xl font-semibold transition-all"
       >
+        <i class="fa-solid fa-clock"></i>
         <span id="current-time">00:00</span>
       </div>
     </div>

@@ -19,6 +19,7 @@ const startBtn = document.getElementById("start-btn");
 const resetBtn = document.getElementById("reset-btn");
 const modeDisplay = document.getElementById("mode");
 const pomodoroCountEl = document.getElementById("pomodoro-count");
+const iconEl = document.getElementById("mode-icon");
 
 function loadState() {
     const saved = localStorage.getItem("focusTimerState");
@@ -71,10 +72,22 @@ function switchMode(newMode) {
     mode = newMode;
     remainingTime = durations[newMode];
     modeDisplay.textContent = modeName(mode);
+    updateModeIcon();
     updateDisplay();
     sendNotification(`Time for ${modeName(newMode)}!`);
     startTimer(); // auto-start;
     saveState();
+}
+// Update icon 
+function updateModeIcon(mode) {
+    const iconMap = {
+        focus: "fa-brain",
+        "short-break": "fa-mug-hot",
+        "long-break": "fa-bed"
+    };
+
+    const iconClass = iconMap[mode] || "fa-circle";
+    iconEl.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
 }
 
 // Start/resume countdown
