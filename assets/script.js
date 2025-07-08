@@ -82,7 +82,7 @@ function switchMode(newMode) {
 function updateModeIcon(mode) {
     const iconMap = {
         focus: "fa-brain",
-        "short-break": "fa-mug-hot",
+        "short-break": "fa-mug-saucer",
         "long-break": "fa-bed"
     };
 
@@ -147,6 +147,7 @@ function resetTimer() {
     pomodoroCount = 0;
     completedCycles = 0;
     pomodoroCountEl.textContent = pomodoroCount;
+    updateModeIcon();
     updateDisplay();
 }
 
