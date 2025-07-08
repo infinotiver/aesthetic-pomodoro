@@ -79,11 +79,11 @@ function switchMode(newMode) {
     saveState();
 }
 // Update icon 
-function updateModeIcon(mode) {
+function updateModeIcon() {
     const iconMap = {
         focus: "fa-brain",
-        "short-break": "fa-mug-saucer",
-        "long-break": "fa-bed"
+        shortBreak: "fa-mug-saucer",
+        longBreak: "fa-bed"
     };
 
     const iconClass = iconMap[mode] || "fa-circle";
